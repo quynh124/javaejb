@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Fruitables - Vegetable Website Template</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta content="" name="keywords" />
+        <meta content="" name="description" />
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;family=Raleway:wght@600;800&amp;display=swap" rel="stylesheet" />
+
+        <!-- Font Awesome -->
+        <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet" />
+
+        <!-- Bootstrap Icons -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+        <!-- Libraries Stylesheet -->
+        <h:outputStylesheet library="lib" name="lightbox/css/lightbox.min.css" />
+        <h:outputStylesheet library="lib" name="owlcarousel/assets/owl.carousel.min.css" />
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <h:outputStylesheet name="css/bootstrap.min.css" />
+
+        <!-- Template Stylesheet -->
+        <h:outputStylesheet name="css/style.css" />
+        <h:outputStylesheet name="css/util.css" />
+        <!--        <script src="https://kit.fontawesome.com/d69fb28507.js" crossorigin="anonymous"></script>-->
+        <script src="resources/js/main_1.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"/>
+
+
+    </h:head>
+    <h:body>
+        <!-- Navbar start -->
+        <div class="container-fluid fixed-top">
+            <div class="container topbar bg-primary d-none d-lg-block">
+                <div class="d-flex justify-content-between">
+                    <div class="top-info ps-2">
+                        <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#" class="text-white">01 Lý Tự Trọng, Quận Ninh Kiều, TP. Cần Thơ</a></small>
+                        <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">cusc@ctu.edu.vn</a></small>
+                    </div>
+                    <div class="top-link pe-2">
+                        <a href="#" class="text-white"><small class="text-white mx-2">Privacy Policy</small>/</a>
+                        <a href="#" class="text-white"><small class="text-white mx-2">Terms of Use</small>/</a>
+                        <a href="#" class="text-white"><small class="text-white ms-2">Sales and Refunds</small></a>
+                    </div>
+                </div>
+            </div>
+            <div class="container px-0">
+                <h:form>
+                    <nav class="navbar navbar-light bg-white navbar-expand-xl">
+                        <h:commandLink action="index.xhtml" styleClass="navbar-brand">
+                            <h1 class="text-primary display-6">Fruitables</h1>
+                        </h:commandLink>
+                        <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                            <span class="fa fa-bars text-primary"></span>
+                        </button>
+                        <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
+                            <ul class="navbar-nav mx-auto">
+                                <li class="nav-item">
+                                    <h:outputLink value="/Project-war/faces/index.xhtml" styleClass="nav-link active">Home </h:outputLink>
+                                    <!--                                     <a href="../cart.xhtml"  styleClass="dropdown-item">Cart</a>-->
+                                    
+                                </li>
+                                <li class="nav-item">
+                                    <!--                                    <a href="../shop.xhtml">Shop</a>-->
+
+                                    <h:outputLink value="/Project-war/faces/shop.xhtml" styleClass="nav-link active">Shop</h:outputLink>
+
+                                </li>
+                                <li class="nav-item">
+                                    <h:outputLink value="/Project-war/faces/shop-detail.xhtml" styleClass="nav-link">Shop Detail</h:outputLink>
+                                    <!--                                                                          <a href="../shop-detail.xhtml"  styleClass="nav-link">Shop Detail</a>-->
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                                    <div class="dropdown-menu m-0 bg-secondary rounded-0">
+                                        <!--                                        <h:commandLink action=".../cart.xhtml" styleClass="dropdown-item">Cart</h:commandLink>-->
+                                        <h:outputLink value="/Project-war/faces/cart.xhtml" styleClass="nav-link">Cart</h:outputLink>
+                                        <!--                                        <a href="../cart.xhtml"  styleClass="dropdown-item">Cart</a>-->
+                                        <!--                                        <h:commandLink action="./checkout.xhtml" styleClass="dropdown-item">Checkout</h:commandLink>-->
+                                        <h:outputLink value="/Project-war/faces/checkout.xhtml" styleClass="nav-link">Checkout</h:outputLink>
+                                        <!--                                          <a href="../checkout.xhtml"  styleClass="dropdown-item">Checkout</a>-->
+                                        <!--                                        <h:commandLink action="testimonial.xhtml" styleClass="dropdown-item">Testimonial</h:commandLink>-->
+                                        <h:outputLink value="/Project-war/faces/review.xhtml" styleClass="nav-link">Review</h:outputLink>
+                                        <!--                                          <a href="../testimonial.xhtml"  styleClass="dropdown-item">Testimonial</a>-->
+                                        <!--                                        <h:commandLink action="404.xhtml" styleClass="dropdown-item">404 Page</h:commandLink>
+                                                                                <h:outputLink value="../.xhtml" styleClass="nav-link">Shop Detail</h:outputLink>-->
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <!--                                      <a href="../contact.xhtml" styleClass="nav-link">Contact</a>-->
+                                    <h:outputLink value="/Project-war/faces/contacts.xhtml" styleClass="nav-link">Contact</h:outputLink>
+                                </li>
+                            </ul>
+                            <div class="d-flex m-3 me-0">
+                                <div class="search-container">
+                                    <input type="text" placeholder="Search..." class="search-input" style="    padding-left: 9px;
+                                           border-left-width: 1px;
+                                           margin-right: 7px;"/>
+                                    <button type="submit" class="search-button" style="width: 33px;padding-right: 8px;border-right-width: 11px;margin-right: 11px;"><i class="fa fa-search"></i></button>
+                                </div>
+
+                                <h:commandLink action="checkout.xhtml" styleClass="position-relative me-4 my-auto">
+                                    <i class="fa fa-shopping-bag fa-2x"></i>
+                                    <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
+                                </h:commandLink>
+                                <h:commandLink action="client/account/login.xhtml" styleClass="my-auto">
+                            
+                                    <i class="fas fa-user fa-2x"></i> <!-- icon login -->
+                                </h:commandLink>
+                            </div>
+                            
+                        </div>
+                    </nav>
+
+                </h:form>
+            </div>
+        </div>
+        <!-- Navbar End -->
+        <!--         Modal Search Start -->
+        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content rounded-0">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex align-items-center">
+                        <div class="input-group w-75 mx-auto d-flex">
+                            <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1"/>
+                            <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--         Modal Search End -->
+
+
+    </h:body>
+</html>

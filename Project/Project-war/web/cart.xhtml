@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Fruitables - Vegetable Website Template</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta content="" name="keywords" />
+        <meta content="" name="description" />
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;family=Raleway:wght@600;800&amp;display=swap" rel="stylesheet" />
+
+        <!-- Font Awesome -->
+        <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet" />
+
+        <!-- Bootstrap Icons -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+        <!-- Libraries Stylesheet -->
+        <h:outputStylesheet library="lib" name="lightbox/css/lightbox.min.css" />
+        <h:outputStylesheet library="lib" name="owlcarousel/assets/owl.carousel.min.css" />
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <h:outputStylesheet name="css/bootstrap.min.css" />
+
+        <!-- Template Stylesheet -->
+        <h:outputStylesheet name="css/style.css" />
+        <h:outputStylesheet name="css/util.css" />
+    </h:head>
+    <h:body>
+        <div id="top">
+            <ui:insert name="header">
+                <ui:include src="header.xhtml"/>
+            </ui:insert>
+        </div>
+        <!-- Modal Search Start -->
+        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content rounded-0">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex align-items-center">
+                        <div class="input-group w-75 mx-auto d-flex">
+                            <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1"/>
+                            <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Search End -->
+
+
+        <!-- Single Page Header start -->
+        <div class="container-fluid page-header py-5">
+            <h1 class="text-center text-white display-6">Cart</h1>
+            <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item"><a href="#">Home fhfgh</a></li>
+                <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                <li class="breadcrumb-item active text-white">Cart</li>
+            </ol>
+        </div>
+        <!-- Single Page Header End -->
+
+
+        <!-- Cart Page Start -->
+        <h:form id="cart">
+            <div id="shopping-cart">
+<!--                <div class="txt-heading">Shopping Cart</div>-->
+                <h:commandLink id="btnEmpty" value="Empty Cart" action="#{cartProcessMB.clearnCart()}" class="btnEmpty"/>    
+                <div class="container-fluid py-5">
+                    <div class="container py-5">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                              
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <h:dataTable value="#{cartProcessMB.cartMap.entrySet()}" var="iCart" class="tbl-cart" cellpadding="10" cellspacing="1" columnClasses="none,none,none,none,tbl-cartprice,tbl-cartprice,none" >
+                                        <th scope="row">
+                                            <h:column>
+                                                <f:facet name="header">Image</f:facet>
+                                                <h:graphicImage value="/faces/resources/img#{iCart.key.images}" alt="Image Product"  class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" />
+                                            </h:column>
+                                        </th>
+                                        <td>
+                                            <h:column>
+                                                <f:facet name="header">Product ID</f:facet>
+                                                    #{iCart.key.productID}
+                                            </h:column>
+                                        </td>
+                                        <td>
+                                            <h:column>
+                                                <f:facet name="header">Product Name</f:facet>
+                                                    #{iCart.key.productName}
+                                            </h:column>
+                                        </td>
+
+                                        <td>
+                                            <h:column>
+                                                <f:facet name="header">Quantity</f:facet>
+                                                <h:commandButton value=" - " action="#{cartProcessMB.decreaseCart(iCart.key.productID,iCart.value-1)}" class="btn btn-primary btn-sm"/> 
+                                               <h:inputText id="quantity" value="#{iCart.value}" maxlength="4" size="4" readonly="true"/>
+                                                <h:commandButton value=" + " action="#{cartProcessMB.increaseCart(iCart.key.productID,iCart.value+1)}" class="btn btn-primary btn-sm"/>
+                                                <f:facet name="footer">
+                                                    <h:outputText value="Total Products: #{cartProcessMB.sumProductCart()}" />
+                                                </f:facet>
+                                            </h:column>
+                                        </td>
+                                        <td>
+                                            <h:column>
+                                                <f:facet name="header">Unit Price</f:facet>
+                                                <h:outputText value="#{iCart.key.unitPrice}">
+                                                    <f:convertNumber currencySymbol = "$" type = "currency" />
+                                                </h:outputText>   
+
+                                            </h:column>
+                                        </td>
+                                        <td>
+                                            <h:column>
+                                                <f:facet name="header">Price</f:facet> 
+                                                <h:outputText value="#{iCart.value * iCart.key.unitPrice}" > 
+                                                    <f:convertNumber currencySymbol = "$" type = "currency" />
+                                                </h:outputText>                                                                
+                                                <f:facet name="footer">
+                                                    <h:outputText value="Total Price:" style="float:left"/>
+                                                    <h:outputText value="#{cartProcessMB.sumCart()}" style="float:right">
+                                                        <f:convertNumber currencySymbol = "$" type = "currency" />
+                                                    </h:outputText>
+                                                </f:facet>
+                                            </h:column>
+                                        </td>
+                                        <td>
+                                            <h:column>
+                                                <f:facet name="header">Remove</f:facet>
+                                                <h:commandLink class="btnRemoveAction" action="#{cartProcessMB.removeItemCart(iCart.key.productID)}">
+                                                    <h:graphicImage value="resources/img/delete.png" alt="Remove Item"/>
+                                                </h:commandLink>
+                                            </h:column>
+                                        </td>
+                                        </h:dataTable>
+                                    </tr>
+                            
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mt-5">
+                            
+<!--                            <button class="btn border-secondary rounded-pill px-4 py-3 text-primary" type="button">Apply Coupon</button>-->
+                        </div>
+                        <div class="row g-4 justify-content-end">
+                            <div class="col-8"></div>
+                            <div class="col-sm-8 col-md-7 col-lg-6 col-xl-4">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+        <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>  
+        <div id="top">
+            <ui:insert name="footer">
+                <ui:include src="/footer.xhtml"/>
+            </ui:insert>
+        </div>
+
+    </h:body>
+</html>

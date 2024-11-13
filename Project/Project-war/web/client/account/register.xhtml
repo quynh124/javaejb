@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head> 
+        <title>Register</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Your Page Title</title>
+
+        <h:outputStylesheet library="vendor" name="/bootstrap/css/bootstrap.min.css" />
+        <h:outputStylesheet library="fonts" name="/font-awesome-4.7.0/css/font-awesome.min.css" />
+        <h:outputStylesheet library="fonts" name="/iconic/css/material-design-iconic-font.min.css" />
+        <h:outputStylesheet library="vendor" name="/animate/animate.css" />
+        <h:outputStylesheet library="vendor" name="/css-hamburgers/hamburgers.min.css" />
+        <h:outputStylesheet library="vendor" name="/animsition/css/animsition.min.css" />
+        <h:outputStylesheet library="vendor" name="/select2/select2.min.css" />
+        <h:outputStylesheet library="vendor" name="/daterangepicker/daterangepicker.css" />
+        <h:outputStylesheet library="css" name="/util.css" />
+        <h:outputStylesheet library="css" name="/main.css" />
+        <!--===============================================================================================-->
+    </h:head>
+    <h:body>
+
+        <div class="limiter">
+            <div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+                <div class="wrap-login100">
+                    <h:form id="fregistry" class="login100-form validate-form">
+
+
+                        <span class="login100-form-title p-b-34 p-t-27">
+                            Sign Up 
+                        </span>
+
+                            <h:outputLabel for="username" value="Username"/>
+                            <h:inputText id="username" required="true" class="wrap-input100 validate-input" value="#{customerMB.customer.username}" requiredMessage="Username is empty"/>
+                          <h:message for="username"/>
+
+                            <h:outputLabel for="password" value="Password"/>
+                            <h:inputSecret id="password" required="true" class="wrap-input100 validate-input"  value="#{customerMB.customer.password}" requiredMessage="Password is empty" />
+                            <h:message for="password"/>
+                            
+
+                        <div class="container-login100-form-btn">
+                            <h:commandButton  class="login100-form-btn" type="submit" value="Register" action="#{customerMB.addCustomer()}"/> <!-- action dạt tren nút-->
+                        </div>
+
+                        <div class="text-center p-t-90">
+                            <a class="txt1" href="login.xhtml">
+                                -> Sign in 
+                            </a>
+                            <a class="txt1" href="../../index.xhtml">
+                                Home
+                               
+                            </a>
+                        </div>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="dropDownSelect1"></div>
+
+        <!--===============================================================================================-->
+        <h:outputScript library="vendor" name="/jquery/jquery-3.2.1.min.js" />
+        <h:outputScript library="vendor" name="/animsition/js/animsition.min.js" />
+        <h:outputScript library="vendor" name="/bootstrap/js/popper.js" />
+        <h:outputScript library="vendor" name="/bootstrap/js/bootstrap.min.js" />
+        <h:outputScript library="vendor" name="/select2/select2.min.js" />
+        <h:outputScript library="vendor" name="/daterangepicker/moment.min.js" />
+        <h:outputScript library="vendor" name="/daterangepicker/daterangepicker.js" />
+        <h:outputScript library="vendor" name="/countdowntime/countdowntime.js" />
+        <h:outputScript library="js" name="main.js" />
+    </h:body>
+</html>

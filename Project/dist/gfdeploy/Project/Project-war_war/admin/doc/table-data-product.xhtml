@@ -1,0 +1,377 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Danh sách nhân viên | Quản trị Admin</title>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <!-- Main CSS-->
+        <h:outputStylesheet library="css" name="main_1.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"/>
+        <!-- or -->
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"/>
+
+        <!-- Font-icon css-->
+        <link rel="stylesheet" type="text/css"
+              href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css"/>
+    </h:head>
+    <h:body onload="time()" class="app sidebar-mini rtl">
+        <!-- Navbar-->
+        <header class="app-header">
+            <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
+                                            aria-label="Hide Sidebar"></a>
+            <!-- Navbar Right Menu-->
+            <ul class="app-nav">
+
+
+                <!-- User Menu-->
+                 <li><a class="app-nav__item" href="../../index.xhtml"><i class='bx bx-log-out bx-rotate-180'></i> </a>
+
+                </li>
+            </ul>
+        </header>
+        <!-- Sidebar menu-->
+        <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+      <aside class="app-sidebar">
+
+
+            <ul class="app-menu">
+              <li><a class="app-menu__item haha" href="phan-mem-ban-hang.xhtml"><i class='app-menu__icon bx bx-cart-alt'></i>
+                        <span class="app-menu__label">Sales POS</span></a></li>
+                <li><a class="app-menu__item active" href="/Project-war/faces/admin/doc/admin.xhtml"><i class='app-menu__icon bx bx-tachometer'></i><span
+                            class="app-menu__label">Control Panel</span></a></li>
+                <li><a class="app-menu__item " href="/Project-war/faces/admin/doc/table-data-table.xhtml"><i class='app-menu__icon bx bx-id-card'></i> <span
+                            class="app-menu__label">Contact</span></a></li>
+                <li><a class="app-menu__item " href="/Project-war/faces/admin/doc/table-data-customer.xhtml"><i class='app-menu__icon bx bx-user-voice'></i><span
+                            class="app-menu__label">Customers</span></a></li>
+                <li><a class="app-menu__item" href="/Project-war/faces/admin/doc/table-data-product.xhtml"><i
+                            class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Products</span></a>
+                </li>
+                <li><a class="app-menu__item" href="/Project-war/faces/admin/doc/table-data-table-catetory.xhtml"><i
+                            class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Catetory</span></a>
+                </li> 
+
+                <li><a class="app-menu__item" href="/Project-war/faces/admin/doc/table-data-suppliers.xhtml"><i class='app-menu__icon bx bx-dollar'></i><span
+                            class="app-menu__label">Supplier</span></a></li>
+                <title>Danh sách nhân viên | Quản trị Admin</title>
+                <meta charset="utf-8"/>
+                <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                <!-- Main CSS-->
+                <h:outputStylesheet library="css" name="main_1.css" />
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"/>
+                <!-- or -->
+                <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"/>
+
+                <!-- Font-icon css-->
+                <link rel="stylesheet" type="text/css"
+                      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css"/>
+               
+            </ul>
+        </aside>
+        <main class="app-content">
+            <div class="app-title">
+                <ul class="app-breadcrumb breadcrumb side">
+                    <li class="breadcrumb-item active"><a href="#"><b>Products</b></a></li>
+                </ul>
+                <div id="clock"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="tile">
+                        <div class="tile-body">
+
+                            <table class="table table-hover table-bordered" id="sampleTable">
+                               
+                              
+
+                                    <h:form id="formProducts" enctype="multipart/form-data" >
+                                                <h:inputHidden id="productID" value="#{productMB.product.productID}"/>
+                                                <h:panelGrid columnClasses="3">
+                                                    <h:outputLabel for="productName" value="Product Name"/>
+                                                    <h:inputText id="productName" value="#{productMB.product.productName}" />
+                                                    <h:message for="productName"/>
+                                    
+                                                    <h:outputLabel for="unitPrice" value="Unit Price"/>
+                                                    <h:inputText id="unitPrice" value="#{productMB.product.unitPrice}" />
+                                                    <h:message for="unitPrice"/>
+                                    
+                                                    <h:outputLabel for="supplier" value="Suppliers"/>
+                                                    <h:selectOneMenu value="#{productMB.supplierID}" id="supplier">
+                                                        <f:selectItems value="#{supplierMB.showAllSuppliers()}" var="itemSup" itemValue="#{itemSup.supplierID}" itemLabel="#{itemSup.supplierID} #{itemSup.companyName}"/>
+                                                    </h:selectOneMenu>
+                                                    <h:message for="supplier"/>
+                                    
+                                                    <h:outputLabel for="categories" value="Categories"/>
+                                                    <h:selectOneMenu value="#{productMB.categoryID}" id="categories">
+                                                        <f:selectItems value="#{categoriesMB.showAllCategories()}" var="itemCate" itemValue="#{itemCate.categoryID}" itemLabel="#{itemCate.categoryID} #{itemCate.categoryName}"/>
+                                                    </h:selectOneMenu>
+                                                    <h:message for="categories"/>
+                                                    
+                                                      <h:outputLabel for="images" value="Image"/>
+                                                      <h:inputFile id="images" value="#{productMB.images}" />
+                                                   
+                                                    
+                                                    <h:outputText value=""/>
+                                                    <h:panelGroup>
+                                                        <h:commandButton type="submit" value="Add" action="#{productMB.addProducts()}"/>
+                                                        <h:commandButton type="submit" value="Reset" action="#{productMB.resetForm()}" />
+                                    
+                                                    </h:panelGroup>
+                                                </h:panelGrid>
+                                            </h:form>
+                                    <h1>Products</h1>
+                                    <!-- Show all -->
+                                    <h:form id="tableProducts">
+                                        <h:dataTable value="#{productMB.showAllProducts()}" var="item1">
+                                            <h:column>
+                                                <f:facet name="header">Product ID</f:facet>
+                                                <h:outputText value="#{item1.productID}" />
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">Product Name</f:facet>
+                                                <h:outputText value="#{item1.productName}" />
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">Unit Price</f:facet>
+                                                <h:outputText value="#{item1.unitPrice}" />
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">Image</f:facet>
+                                                <h:graphicImage value="/faces/resources/img#{item1.images}" width="100px" />
+                                               
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">Supplier ID</f:facet>
+                                                <h:outputText value="#{item1.supplierID.supplierID}" />
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">Supplier Name</f:facet>
+                                                <h:outputText value="#{item1.supplierID.companyName}" />
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">Category ID</f:facet>
+                                                <h:outputText value="#{item1.categoryID.categoryID}" />
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">Category Name</f:facet>
+                                                <h:outputText value="#{item1.categoryID.categoryName}" />
+                                            </h:column>
+
+                                            <h:column>
+                                                <f:facet name="header">Update</f:facet>
+                                                <h:commandButton action="#{productMB.findProductbyID(item1.productID)}" type="submit" image="../../resources/img/icons/edit1.png"/>
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">Delete</f:facet>
+                                                <h:commandButton action="#{productMB.deletePro(item1.productID)}" image="../../resources/img/icons/delete1.png" type="submit"/>
+                                            </h:column>
+                                        </h:dataTable>
+                                        <h:form id="ffindregion">
+                                            <h:panelGrid columns="3">
+
+                                                <h:outputText value="Product Key"/>
+                                                <h:inputText id="findproductDescription" value="#{productMB.keyfind}"/>
+                                                <h:message for="findproductDescription" />
+
+                                                <h:outputText value=""/>
+                                                <h:panelGroup>
+
+                                                    <h:commandButton id="submitsame" value="Find Same" action="#{productMB.findByProductsDescriptionSame()}"/>
+                                                    <h:commandButton id="reset" value="Reset" action="#{productMB.resetForm()}"/>
+                                                </h:panelGroup>
+                                            </h:panelGrid>
+                                        </h:form> 
+
+                                        <h:dataTable value="#{productMB.listProduct}" var="item">
+                                            <h:column>
+                                                <f:facet name="header">Product ID</f:facet>
+                                                <h:outputText value="#{item.productID}"/>
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">Product Name</f:facet>
+                                                <h:outputText value="#{item.productName}"/>
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">Unit Price</f:facet>
+                                                <h:outputText value="#{item.unitPrice}"/>
+                                            </h:column>
+                                          
+                                        
+                                        </h:dataTable>
+                                    </h:form>
+                                  
+                                    
+                                
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!--
+          MODAL
+        -->
+        <div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+             data-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="form-group  col-md-12">
+                                <span class="thong-tin-thanh-toan">
+                                    <h5>Chỉnh sửa thông tin sản phẩm cơ bản</h5>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label class="control-label">Mã sản phẩm </label>
+                                <input class="form-control" type="number" value="71309005"/>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label">Tên sản phẩm</label>
+                                <input class="form-control" type="text"  required="required" value="Bàn ăn gỗ Theresa"/>
+                            </div>
+                            <div class="form-group  col-md-6">
+                                <label class="control-label">Số lượng</label>
+                                <input class="form-control" type="number" value="20" required="required"/>
+                            </div>
+                            <div class="form-group col-md-6 ">
+                                <label for="exampleSelect1" class="control-label">Tình trạng sản phẩm</label>
+                                <select class="form-control" id="exampleSelect1">
+                                    <option>Còn hàng</option>
+                                    <option>Hết hàng</option>
+                                    <option>Đang nhập hàng</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label">Giá bán</label>
+                                <input class="form-control" type="text" value="5.600.000"/>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleSelect1" class="control-label">Danh mục</label>
+                                <select class="form-control" id="exampleSelect1">
+                                    <option>Bàn ăn</option>
+                                    <option>Bàn thông minh</option>
+                                    <option>Tủ</option>
+                                    <option>Ghế gỗ</option>
+                                    <option>Ghế sắt</option>
+                                    <option>Giường người lớn</option>
+                                    <option>Giường trẻ em</option>
+                                    <option>Bàn trang điểm</option>
+                                    <option>Giá đỡ</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <a href="#" style="    float: right;
+                           font-weight: 600;
+                           color: #ea0000;">Chỉnh sửa sản phẩm nâng cao</a>
+
+
+                        <button class="btn btn-save" type="button">Lưu lại</button>
+                        <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
+
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--
+        MODAL
+        -->
+
+        <!-- Essential javascripts for application to work-->
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="src/jquery.table2excel.js"></script>
+        <script src="js/main.js"></script>
+        <!-- The javascript plugin to display page loading on top-->
+        <script src="js/plugins/pace.min.js"></script>
+        <!-- Page specific javascripts-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+        <!-- Data table plugin-->
+        <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
+        <script>
+                                        $('#sampleTable').DataTable();
+                                        //Thời Gian
+                                        function mytime() {
+
+                                            var today = new Date();
+                                            var weekday = new Array(7);
+                                            weekday[0] = "Chủ Nhật";
+                                            weekday[1] = "Thứ Hai";
+                                            weekday[2] = "Thứ Ba";
+                                            weekday[3] = "Thứ Tư";
+                                            weekday[4] = "Thứ Năm";
+                                            weekday[5] = "Thứ Sáu";
+                                            weekday[6] = "Thứ Bảy";
+                                            var day = weekday[today.getDay()];
+                                            var dd = today.getDate();
+                                            var mm = today.getMonth() + 1;
+                                            var yyyy = today.getFullYear();
+                                            var h = today.getHours();
+                                            var m = today.getMinutes();
+                                            var s = today.getSeconds();
+                                            //m = checkTime(m);
+                                            //s = checkTime(s);
+                                            nowTime = h + " giờ " + m + " phút " + s + " giây";
+                                            if (dd > 10) {
+                                                dd = '0' + dd;
+                                            }
+                                            if (mm > 10) {
+                                                mm = '0' + mm;
+                                            }
+                                            today = day + ', ' + dd + '/' + mm + '/' + yyyy;
+                                            tmp = '<span class="date"> ' + today + ' - ' + nowTime + '</span>';
+                                            document.getElementById("clock").innerHTML = tmp;
+                                            clocktime = setTimeout("time()", "1000", "Javascript");
+                                        }
+        </script>
+
+        <script>
+            function deleteRow(r) {
+                var i = r.parentNode.parentNode.rowIndex;
+                document.getElementById("myTable").deleteRow(i);
+            }
+            jQuery(function () {
+                jQuery(".trash").click(function () {
+                    swal({
+                        title: "Cảnh báo",
+                        text: "Bạn có chắc chắn là muốn xóa sản phẩm này?",
+                        buttons: ["Hủy bỏ", "Đồng ý"],
+                    })
+                            .then((willDelete) => {
+                                if (willDelete) {
+                                    swal("Đã xóa thành công.!", {
+
+                                    });
+                                }
+                            });
+                });
+            });
+            oTable = $('#sampleTable').dataTable();
+            $('#all').click(function (e) {
+                $('#sampleTable tbody :checkbox').prop('checked', $(this).is(':checked'));
+                e.stopImmediatePropagation();
+            });
+        </script>
+
+    </h:body>
+</html>
